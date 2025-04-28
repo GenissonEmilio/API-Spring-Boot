@@ -1,8 +1,8 @@
-import { Routes, Route } from 'react-router-dom'
-import Login from './pages/Login'
-import Register from './pages/Register'
-import Dashboard from './pages/Dashboard'
-import ProtectedRoute from './components/ProtectedRoute'
+import { Routes, Route } from 'react-router-dom';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Dashboard from './pages/Dashboard';
+import ProtectedRoute from './components/ProtectedRoute';
 
 export default function AppRoutes() {
   return (
@@ -17,6 +17,8 @@ export default function AppRoutes() {
           </ProtectedRoute>
         }
       />
+      {/* Você pode adicionar mais rotas aqui */}
     </Routes>
-  )
+  );
 }
+
