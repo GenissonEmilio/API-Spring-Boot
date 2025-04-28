@@ -33,7 +33,7 @@ export default function LoginForm() {
         value={senha}
         onChange={(e) => setSenha(e.target.value)}
       /><br/>
-      <button type="submit">Entra</button>
+      <button type="submit">Entrar</button>
     </form>
   )
 }
