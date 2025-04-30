@@ -1,5 +1,7 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { registerUser } from '../services/auth';
+import { AxiosError } from 'axios';
 
 export default function RegisterForm() {
   const navigate = useNavigate()
@@ -10,25 +12,34 @@ export default function RegisterForm() {
   const [confirmPassword, setConfirmPassword] = useState('')
   const [error, setError] = useState('')
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-
+  
     if (password !== confirmPassword) {
       setError('As senhas não coincidem.')
       return
     }
-
-    // Aqui futuramente você chamaria o backend (API POST /register)
-    console.log({
-      name,
-      email,
-      password,
-    })
-
-    // Simula cadastro bem-sucedido
-    alert('Cadastro realizado com sucesso!')
-    navigate('/login')
+  
+    try {
+      await registerUser({
+        nome: name,
+        email: email,
+        senha: password
+      })
+      alert('Cadastro realizado com sucesso!')
+      navigate('/login')
+    } catch (err) {
+      const error = err as AxiosError;
+      if (error.response) {
+        console.error(error.response.data);
+        alert('Erro ao registrar: ' + (error.response.data as AxiosError).message)
+      } else {
+        console.error(error);
+        alert('Erro desconhecido ao registrar')
+      }
+    }
   }
+  
 
   return (
     <div style={{ maxWidth: '400px', margin: '0 auto', padding: '2rem' }}>
