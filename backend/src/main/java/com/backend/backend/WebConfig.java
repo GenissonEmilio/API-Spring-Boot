@@ -10,9 +10,9 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**")  // Permite todas as rotas
-                .allowedOrigins("http://localhost:3000") // Frontend React (ajuste conforme necessário)
-                .allowedMethods("GET", "POST", "PUT", "DELETE", "PATCH") // Métodos permitidos
-                .allowedHeaders("*"); // Permite todos os cabeçalhos
+        registry.addMapping("/**")
+                .allowedOrigins("http://localhost:3000", "https://genissonapi.vercel.app/")
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "PATCH")
+                .allowedHeaders("*");
     }
 }
