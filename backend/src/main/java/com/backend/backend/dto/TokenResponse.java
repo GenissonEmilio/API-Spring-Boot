@@ -1,6 +1,6 @@
 package com.backend.backend.dto;
 
-class TokenResponse {
+public class TokenResponse {
     public String token;
 
     public TokenResponse(String token) {
