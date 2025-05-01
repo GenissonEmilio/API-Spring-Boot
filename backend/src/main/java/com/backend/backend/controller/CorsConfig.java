@@ -11,7 +11,7 @@ public class CorsConfig implements WebMvcConfigurer {
     public void addCorsMappings(CorsRegistry registry) {
         // Permite o acesso ao seu backend a partir do frontend
         registry.addMapping("/**") // permite todas as rotas
-                .allowedOrigins("http://localhost:5173") // permite o frontend do Vite
+                .allowedOrigins("http://localhost:5173", "https://genissonapi.vercel.app") // permite o frontend do Vite
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // métodos HTTP permitidos
                 .allowedHeaders("*")
                 .allowCredentials(true); // permite qualquer header
