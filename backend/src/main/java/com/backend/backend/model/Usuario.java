@@ -16,6 +16,9 @@ public class Usuario {
     
     private  String senha;
 
+    public Usuario(String nome, String email, String senhaCriptografada) {
+    }
+
     public String getEmail() {
         return email;
     }
