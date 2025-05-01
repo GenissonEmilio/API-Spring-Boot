@@ -2,6 +2,7 @@ package com.backend.backend.controller;
 
 import com.backend.backend.dto.LoginDTO;
 import com.backend.backend.dto.RegisterDTO;
+import com.backend.backend.dto.TokenResponse;
 import com.backend.backend.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
